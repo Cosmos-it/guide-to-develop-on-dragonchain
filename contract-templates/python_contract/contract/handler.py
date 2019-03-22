@@ -6,7 +6,7 @@ def eprint(*args, **kwargs):
 
 def main(payload):
     eprint('Hello Code Fellows today')
-    sys.stdout.write('hguhbgy;')
+    sys.stdout.write('Testing;')
     return {
         'invoker_transaction_type': payload['header']['txn_type'],
     }
