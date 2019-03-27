@@ -1,4 +1,3 @@
 # Developing Dragonchain Smart contract
-
-[Documentation](https://github.com/dragonchain-inc/guide-to-develop-on-dragonchain/wiki)
+Follow this: [documentation](https://github.com/dragonchain-inc/guide-to-develop-on-dragonchain/wiki)
 
