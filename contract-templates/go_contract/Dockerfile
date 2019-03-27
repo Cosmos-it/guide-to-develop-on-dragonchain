@@ -5,6 +5,7 @@ ARG ADDITIONAL_PACKAGE
 ARG CGO_ENABLED=0
 
 WORKDIR /go/src/handler
+
 COPY . .
 
 # Run a gofmt and exclude all vendored code.

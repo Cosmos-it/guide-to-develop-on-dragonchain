@@ -1,5 +1,7 @@
 FROM alpine:latest as builder
+
 WORKDIR /home/app
+
 COPY . .
 
 RUN apk add g++; \
