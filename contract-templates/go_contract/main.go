@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"handler/function"
 	"io/ioutil"
 	"log"
 	"os"
@@ -13,11 +14,5 @@ func main() {
 		log.Fatalf("Unable to read standard input: %s", err.Error())
 	}
 
-	fmt.Println(Handle(input))
-}
-
-// Handle payload
-func Handle(req []byte) string {
-	return fmt.Sprintf("Hello from go smart contract: %s", string(req))
-
+	fmt.Println(function.Handle(input))
 }

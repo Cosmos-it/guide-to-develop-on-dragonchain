@@ -4,13 +4,11 @@ ENV DOTNET_CLI_TELEMETRY_OPTOUT 1
 
 WORKDIR /home/app/src/
 
-COPY ./*.csproj  .
+COPY . .
 
-RUN dotnet restore ./root.csproj
+RUN dotnet restore ./root.csproj; \
+    dotnet publish -c release -o published
 
-COPY .  .
-
-RUN dotnet publish -c release -o published
 
 FROM microsoft/dotnet:2.1-runtime
 
@@ -19,5 +17,5 @@ WORKDIR /home/app/
 COPY --from=builder /home/app/src/published .
 RUN chown 1000:1000 -R /home/app
 
-USER 1000
+USER 1000:1000
 

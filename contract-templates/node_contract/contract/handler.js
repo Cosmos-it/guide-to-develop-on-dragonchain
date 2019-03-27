@@ -1,5 +1,7 @@
-"use strict"
+'use strict'
 
-module.exports = (context, callback) => {
-    callback(undefined, context);
+module.exports = (input, callback) => {
+    console.error('This is a log');
+    const returnValue = `Hello from NodeJS contract: ${input}`;
+    callback(undefined, returnValue);
 }

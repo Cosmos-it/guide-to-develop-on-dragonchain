@@ -2,17 +2,19 @@ import sys
 import json
 from contract import handler
 
-def read_data():
-    buffer = ''
-    for line in sys.stdin:
-        buffer += line
-    return buffer
+
+def get_stdin():
+    buf = ""
+    while(True):
+        line = sys.stdin.readline()
+        buf += line
+        if line == "":
+            break
+    return buf
 
 
 if __name__ == "__main__":
-    data = read_data()
-    parsed = json.loads(data)
-    ret = handler.main(parsed)
+    st = get_stdin()
+    ret = handler.main(st)
     if ret is not None:
-        serialized = json.dumps(ret)
-        sys.stdout.buffer.write(serialized.encode('utf-8'))
+        sys.stdout.write(json.dumps(ret))

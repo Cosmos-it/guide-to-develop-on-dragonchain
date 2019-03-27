@@ -2,10 +2,12 @@ FROM alpine:latest as builder
 
 WORKDIR /home/app
 
+RUN apk add g++
+
 COPY . .
 
-RUN apk add g++; \
-    g++ -o main main.cpp contract/handler.cpp
+RUN g++ -o main main.cpp contract/handler.cpp
+
 
 FROM alpine:latest
 
@@ -15,4 +17,4 @@ WORKDIR /home/app
 
 COPY --from=builder /home/app/main .
 
-USER 1000
+USER 1000:1000

@@ -3,3 +3,4 @@ obj/
 .nuget/
 .dotnet/
 .templateengine/
+Dockerfile

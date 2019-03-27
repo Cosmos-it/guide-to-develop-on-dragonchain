@@ -1,6 +1,5 @@
 #include <string.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include "contract/handler.h"
 
 int main() {
@@ -19,7 +18,7 @@ int main() {
         }
     }
 
-    printf("%s", handler(input));
+    printf("%s", handler(input).c_str());
 
     free(input);
     return 0;

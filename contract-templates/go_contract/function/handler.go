@@ -2,10 +2,10 @@ package function
 
 import (
 	"fmt"
+	"os"
 )
 
-// Handle payload
 func Handle(req []byte) string {
-	return fmt.Sprintf("Hello from go smart contract: %s", string(req))
-
+	fmt.Fprintf(os.Stderr, "This is a log")
+	return fmt.Sprintf("Hello from golang smart contract: %s", string(req))
 }
