@@ -2,9 +2,9 @@
 using System.IO;
 using System.Text;
 
-namespace Function
+namespace Contract
 {
-    public class FunctionHandler
+    public class ContractHandler
     {
         public string Handle(string input) {
             TextWriter errorWriter = Console.Error;

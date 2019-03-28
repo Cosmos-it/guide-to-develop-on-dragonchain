@@ -4,3 +4,8 @@ package-lock.json
 __pycache__/
 *.py[cod]
 *$py.class
+bin/
+obj/
+.nuget/
+.dotnet/
+.templateengine/
