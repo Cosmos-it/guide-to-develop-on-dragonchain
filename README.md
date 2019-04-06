@@ -213,7 +213,7 @@ It is similar to posting a transaction to a registered transaction. However, whe
 print(json.dumps(dragonchain_client.register_transaction_type('currency', ''), indent=4, sort_keys=True))
 ```
 
-#### *Post a transactions*
+#### *Post a transaction*
 
 Posting a transaction to currency transaction
 
