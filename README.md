@@ -268,7 +268,7 @@ Response from Dragonchain
 ```
 
 
-#### *Update a Transactions*
+#### *Update a Transaction*
 
 Dragonchain allows you to update transaction custom indexes only. The custom indexes will allow you query transaction easily.
 
@@ -276,7 +276,7 @@ Dragonchain allows you to update transaction custom indexes only. The custom ind
 print(json.dumps(dragonchain_client.register_transaction_type('currency', ''), indent=4, sort_keys=True))
 ```
 
-#### *Query a Transactions*
+#### *Query a Transaction*
 
 Query currency transaction
 
