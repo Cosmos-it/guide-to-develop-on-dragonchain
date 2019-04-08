@@ -39,7 +39,7 @@ This document is for developers and enterprises who are:
 
 ### Smart Contract
 
-Smart contract facilitate credible transactions in a traceable and permanent manner, without the need for third parties. Smart contract allow users to control which contractual clauses are made partially or entirely self-executing and self-enforcing.
+Smart contracts facilitate credible transactions in a verifiable and permanent manner, without the need for third parties.
 
 #### Dragonchain Smart Contract
 
