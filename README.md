@@ -93,7 +93,7 @@ print(json.dumps(dragonchain_client.post_contract(
     txn_type='example_contract',
     image='taban/python_contract',
     cmd='python',
-    args=['index'],
+    args=['-m', 'index'],
     execution_order='parallel',
     # auth='<docker_auth_token_if_private_repository>'
 )), indent=4, sort_keys=True)
@@ -144,7 +144,7 @@ print(json.dumps(dragonchain_client.update_contract(
     contract_id='<contract_id>',
     image='taban/python_contract:latest',
     cmd='python',
-    args=['index'],
+    args=['-m', 'index'],
     execution_order='parallel',
     # auth='<docker_auth_token_if_private_repository>'
 ), indent=4, sort_keys=True))
