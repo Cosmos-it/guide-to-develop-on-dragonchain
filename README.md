@@ -197,15 +197,43 @@ print(json.dumps(dragonchain_client.delete_contract('<contract_id>'), =4, sort_k
 ```
 
 ```json
-
+{
+    "ok": true,
+    "response": {
+        "success": {
+            "args": [
+                "index"
+            ],
+            "auth_key_id": null,
+            "cmd": "paython",
+            "cron": null,
+            "dcrn": "SmartContract::L1::AtRest",
+            "env": {},
+            "execution_order": "parallel",
+            "existing_secrets": [],
+            "id": "2cb7589b-1218-42b7-b876-7a05392d86c9",
+            "image": "taban/python_contract:latest",
+            "image_digest": null,
+            "seconds": null,
+            "status": {
+                "msg": "",
+                "state": "deleting",
+                "timestamp": "2019-04-08 16:28:03.427830"
+            },
+            "txn_type": "example_contract",
+            "version": "1"
+        }
+    },
+    "status": 202
+}
 ```
 
 ### Transaction
 
 Unlike other platforms out there, Dragonchain platform allows you to register a transaction and start using it without developing a Smart Contract. As business/developer, your architecture will handle posting, updating and retrieving of transactions.
 
-You might ask how does posting a transaction to a Smart Contract work? 
-It is similar to posting a transaction to a registered transaction. However, when a Smart Contract is created on Dragonchain, the system will create two transactions, one with invoker and another without.  
+You might ask how does posting a transaction to a Smart Contract work?
+It is similar to posting a transaction to a registered transaction. However, when a Smart Contract is created on Dragonchain, the system will create two transactions, one with invoker and another without.
 
 #### *Register a transaction*
 
