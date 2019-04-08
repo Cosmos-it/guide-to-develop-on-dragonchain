@@ -14,7 +14,7 @@
   * [Deleting a Smart Contract](####Deleting-a-Smart-Contract)
 * [Transaction](###Transaction)
   * [Register a transaction](####Register-a-transaction)
-  * [Register a transaction](####Register a transaction)
+  * [Register a transaction](####Register-a-transaction)
   * [Update a transaction](####Update-a-transaction)
   * [Query a transaction](####Query-a-transaction)
 
