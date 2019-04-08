@@ -4,19 +4,19 @@
 
 ### Overview
 
-* Audience
-* Design goals
-* Basic Requirements
-* Smart Contract
-  * Dragonchain Smart Contract
-  * Deploying a Smart Contract
-  * Updating a Smart Contract
-  * Deleting a Smart Contract
-* Transaction
-  * Register a transaction
-  * Register a transaction
-  * Update a transaction
-  * Query a transaction
+* [Audience](###Audience)
+* [Design goals](###Design)
+* [Basic Requirements](###Basic-Requirements)
+* [Smart Contract](###Smart-Contract)
+  * [Dragonchain Smart Contract](####Dragonchain-Smart-Contract)
+  * [Deploying a Smart Contract](####Dragonchain-Smart-Contract)
+  * [Updating a Smart Contract](####Updating-a-Smart-Contract)
+  * [Deleting a Smart Contract](####Deleting-a-Smart-Contract)
+* [Transaction](###Transaction)
+  * [Register a transaction](####Register-a-transaction)
+  * [Register a transaction](####Register a transaction)
+  * [Update a transaction](####Update-a-transaction)
+  * [Query a transaction](####Query-a-transaction)
 
 ### Audience
 
@@ -25,7 +25,7 @@ This document is for developers and enterprises who are:
 * Interested in Dragonchain Platform
 * Looking to write Smart Contracts
 
-### Design Goals
+### Design
 
 * Flexibility: Developers can create smart contracts as docker containers with the ability to update and delete after deployment.
 * Scalability:  Dragonchain platform doesn’t use algorithm such as PoW or PoS. Instead we use public blockchains for pinning without running our own.
