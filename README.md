@@ -4,34 +4,34 @@
 
 ### Overview
 
-* [Audience](###Audience)
-* [Design goals](###Design)
-* [Basic Requirements](###Basic-Requirements)
-* [Smart Contract](###Smart-Contract)
-  * [Dragonchain Smart Contract](####Dragonchain-Smart-Contract)
-  * [Deploying a Smart Contract](####Dragonchain-Smart-Contract)
-  * [Updating a Smart Contract](####Updating-a-Smart-Contract)
-  * [Deleting a Smart Contract](####Deleting-a-Smart-Contract)
-* [Transaction](###Transaction)
-  * [Register a transaction](####Register-a-transaction)
-  * [Register a transaction](####Register-a-transaction)
-  * [Update a transaction](####Update-a-transaction)
-  * [Query a transaction](####Query-a-transaction)
+* [Audience](#audience)
+* [Design goals](#design)
+* [Basic Requirements](#basic-requirements)
+* [Smart Contract](#smart-contract)
+  * [Dragonchain Smart Contract](#dragonchain-smart-contract)
+  * [Deploy a Smart Contract](#dragonchain-Smart-contract)
+  * [Updatea Smart Contract](#update-a-Smart-contract)
+  * [Delete a Smart Contract](#delete-a-Smart-contract)
+* [Transaction](#transaction)
+  * [Register a transaction](#register-a-transaction)
+  * [Register a transaction](#register-a-transaction)
+  * [Update a transaction](#update-a-transaction)
+  * [Query a transaction](#query-a-transaction)
 
-### Audience
+### Audience {#audience}
 
 This document is for developers and enterprises who are:
 
 * Interested in Dragonchain Platform
 * Looking to write Smart Contracts
 
-### Design
+### Design {#design}
 
 * Flexibility: Developers can create smart contracts as docker containers with the ability to update and delete after deployment.
 * Scalability:  Dragonchain platform doesn’t use algorithm such as PoW or PoS. Instead we use public blockchains for pinning without running our own.
 * Simplicity: Dragonchain has rolled out an in house SDKs in Python and python.js to help developers interact with Dragonchain platform easily
 
-### Basic Requirements
+### Basic Requirements {#basic-requirements}
 
 * Must have a Dragonchain Console account (Keys)
 * Must download Dragonchain SDK of your choice: [Python](https://github.com/dragonchain-inc/dragonchain-sdk-python) or []Node.js](https://github.com/dragonchain-inc/dragonchain-sdk-node) SDK
