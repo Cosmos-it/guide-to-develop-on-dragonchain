@@ -2,17 +2,16 @@ package main
 
 import (
 	"fmt"
-	"handler/function"
+	"handler/contract"
 	"io/ioutil"
-	"log"
 	"os"
 )
 
 func main() {
 	input, err := ioutil.ReadAll(os.Stdin)
 	if err != nil {
-		log.Fatalf("Unable to read standard input: %s", err.Error())
+		fmt.Fprintf(os.Stderr, "Unable to read standard input: %s", err.Error())
+		os.Exit(1)
 	}
-
-	fmt.Println(function.Handle(input))
+	fmt.Print(contract.Handle(input))
 }

@@ -11,9 +11,7 @@ int main() {
         char *buffer = NULL;
         read = getline(&buffer, &len, stdin);
         if (read != -1) {
-            int currLen = strlen(input);
-            int readLen = strlen(buffer);
-            input = (char*)realloc(input, currLen + readLen + 3);
+            input = (char*)realloc(input, strlen(input) + strlen(buffer) + 3);
             strcat(input, buffer);
             free(buffer);
         }

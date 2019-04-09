@@ -1,12 +1,8 @@
 #!/bin/sh
 
-# Dragonchain smart contract example
-
-input=""
-
 # Get input from stdin
-while read -r line
-do
+input=""
+while read -r line; do
     input="$input$line\n"
 done
 # Trim the extra trailing newline on our input

@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="function\Function.csproj" />
+    <ProjectReference Include="contract\Contract.csproj" />
   </ItemGroup>
  <PropertyGroup>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
