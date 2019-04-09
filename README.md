@@ -5,33 +5,33 @@
 ### Overview
 
 * [Audience](#audience)
-* [Design goals](#design)
+* [Design](#design)
 * [Basic Requirements](#basic-requirements)
 * [Smart Contract](#smart-contract)
   * [Dragonchain Smart Contract](#dragonchain-smart-contract)
-  * [Deploy a Smart Contract](#dragonchain-Smart-contract)
-  * [Updatea Smart Contract](#update-a-Smart-contract)
-  * [Delete a Smart Contract](#delete-a-Smart-contract)
+  * [Deploy a Smart Contract](#deploy-a-smart-contract)
+  * [Update a Smart Contract](#update-a-smart-contract)
+  * [Delete a Smart Contract](#delete-a-smart-contract)
 * [Transaction](#transaction)
-  * [Register a transaction](#register-a-transaction)
-  * [Register a transaction](#register-a-transaction)
-  * [Update a transaction](#update-a-transaction)
-  * [Query a transaction](#query-a-transaction)
+  * [Register a Transaction](#register-a-transaction)
+  * [Post a Transaction](#post-a-transaction)
+  * [Update a Transaction](#register-a-transaction)
+  * [Query a Transaction](#query-a-transaction)
 
-### Audience {#audience}
+### Audience
 
 This document is for developers and enterprises who are:
 
 * Interested in Dragonchain Platform
 * Looking to write Smart Contracts
 
-### Design {#design}
+### Design
 
 * Flexibility: Developers can create smart contracts as docker containers with the ability to update and delete after deployment.
 * Scalability:  Dragonchain platform doesn’t use algorithm such as PoW or PoS. Instead we use public blockchains for pinning without running our own.
 * Simplicity: Dragonchain has rolled out an in house SDKs in Python and python.js to help developers interact with Dragonchain platform easily
 
-### Basic Requirements {#basic-requirements}
+### Basic Requirements
 
 * Must have a Dragonchain Console account (Keys)
 * Must download Dragonchain SDK of your choice: [Python](https://github.com/dragonchain-inc/dragonchain-sdk-python) or []Node.js](https://github.com/dragonchain-inc/dragonchain-sdk-node) SDK
@@ -43,9 +43,9 @@ Smart contracts facilitate credible transactions in a verifiable and permanent m
 
 #### Dragonchain Smart Contract
 
-[Access Smart Contract template](https://github.com/dragonchain-inc/guide-to-develop-on-dragonchain/tree/master/smart-contract-templates)
+[Access Smart Contract Templates](https://github.com/dragonchain-inc/guide-to-develop-on-dragonchain/tree/master/smart-contract-templates)
 
-#### Deploying a Smart Contract
+#### Deploy a Smart Contract
 
 Clone the Smart Contract template and choose the python_contract
 
@@ -73,7 +73,7 @@ Lets create a file called index.py. We will incrementatlly add code to this file
 ```python
 import json
 import dragonchain_sdk
-client = dragonchain_sdk.Client('<DC_ID>')
+client = dragonchain_sdk.Client('<DC_ID>', )
 
 # Post Smart Contract
 print(json.dumps(dragonchain_client.post_contract(
@@ -120,9 +120,9 @@ Response from Dragonchain
 }
 ```
 
-#### Updating a Smart Contract
+#### Update a Smart Contract
 
-```py
+```python
 
 # Update Smart Contract
 print(json.dumps(dragonchain_client.update_contract(
@@ -170,9 +170,9 @@ Response from Dragonchain
 
 ```
 
-#### Deleting a Smart Contract
+#### Delete a Smart Contract
 
-```py
+```python
 # Delete a Smart Contract
 print(json.dumps(dragonchain_client.delete_contract('<contract_id>')))
 ```
@@ -211,11 +211,9 @@ print(json.dumps(dragonchain_client.delete_contract('<contract_id>')))
 
 ### Transaction
 
-When a Smart Contract is created on Dragonchain, the system will create two transactions, one with invoker and another without.
-
 #### Register a transaction
 
-```py
+```python
 print(json.dumps(dragonchain_client.register_transaction_type('currency')))
 ```
 
@@ -223,7 +221,7 @@ print(json.dumps(dragonchain_client.register_transaction_type('currency')))
 
 Posting a transaction to currency transaction
 
-```py
+```python
 # Currency contract
 print(json.dumps(dragonchain_client.post_transaction('currency', {
     'version': '1',
@@ -249,7 +247,7 @@ Response from Dragonchain
 
 Post a transaction to our python_contract under the txn_type='example_contract'
 
-```py
+```python
 print(json.dumps(dragonchain_client.post_transaction('example_contract', {
     'version': '1',
     'exampleData': {
@@ -275,7 +273,7 @@ Response from Dragonchain
 
 #### Update a Transaction
 
-```py
+```python
 print(json.dumps(dragonchain_client.register_transaction_type('currency')))
 ```
 
@@ -285,7 +283,7 @@ Query currency transaction
 
 Grab the transaction id returned by currency
 
-```py
+```python
 # # Query currency
 print(json.dumps(dragonchain_client.query_transactions(query='txn_id:"5b64cd77-6d7e-48ba-8004-5c276ed43da7"')))
 ```
@@ -333,7 +331,7 @@ Query example_contract transaction
 
 Grab the transaction id returned by example_contract
 
-```py
+```python
 # Query example_contract
 print(json.dumps(dragonchain_client.query_transactions('txn_id:"02c3652e-e5ae-425b-9413-986d9b844cb6"')))
 ```
@@ -381,4 +379,4 @@ Note:
 
 ### Contribute SDK
 
-Currently, Dragonchain supports two SDKs (Python and python.js) internally, but we would like to have many SDK options to reflect our system capabilities. If you have any questions or concerns, please join our community developer forum on Telegram (Community Dragonchain Dev Official).
+Currently, Dragonchain supports two SDKs ([Python](https://github.com/dragonchain-inc/dragonchain-sdk-python) and [Node.js](https://github.com/dragonchain-inc/dragonchain-sdk-node)) internally, but we would like to have many SDK options to reflect our system capabilities. If you have any questions or concerns, please join our community developer forum on Telegram (Community Dragonchain Dev Official).
