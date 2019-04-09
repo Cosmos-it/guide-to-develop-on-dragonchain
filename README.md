@@ -73,7 +73,7 @@ Lets create a file called index.py. We will incrementatlly add code to this file
 ```python
 import json
 import dragonchain_sdk
-client = dragonchain_sdk.Client('<DC_ID>', '<AUTH_KEY>''AUTH_KEY_ID')
+client = dragonchain_sdk.Client('<DC_ID>', '<AUTH_KEY>', 'AUTH_KEY_ID')
 
 # Post Smart Contract
 print(json.dumps(dragonchain_client.post_contract(
