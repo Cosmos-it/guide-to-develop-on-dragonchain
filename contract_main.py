@@ -1,7 +1,7 @@
 import json
 import dragonchain_sdk
 
-client = dragonchain_sdk.Client('<DC_ID>', '<AUTH_KEY>''AUTH_KEY_ID')
+client = dragonchain_sdk.Client('<DC_ID>', '<AUTH_KEY>', 'AUTH_KEY_ID')
 
 # Posting NodeJs contract
 print(json.dumps(client.post_contract(
