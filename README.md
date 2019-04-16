@@ -259,7 +259,7 @@ print(json.dumps(dragonchain_client.post_transaction('example_contract', {
 
 Response from Dragonchain
 
-> Save the transaction_id returned by your example
+Save the transaction_id returned by your example
 
 ```json
 {
