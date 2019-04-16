@@ -379,4 +379,4 @@ Note:
 
 ### Contribute SDK
 
-Currently, Dragonchain supports two SDKs ([Python](https://github.com/dragonchain-inc/dragonchain-sdk-python) and [Node.js](https://github.com/dragonchain-inc/dragonchain-sdk-node)) internally, but we would like to have many SDK options to reflect our system capabilities. If you have any questions or concerns, please join our community developer forum on Telegram (Community Dragonchain Dev Official).
+Currently, Dragonchain supports two SDKs ([Python](https://github.com/dragonchain-inc/dragonchain-sdk-python) and [Node.js](https://github.com/dragonchain-inc/dragonchain-sdk-node)), but any language could be used to interface with a chain. If you have any questions, concerns, or would like to contribute to a DragonchainSDK or create your own, please join our community developer forum on Telegram (Community Dragonchain Dev Official).
