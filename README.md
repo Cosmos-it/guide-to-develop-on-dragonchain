@@ -28,14 +28,12 @@ This document is for developers and enterprises who are:
 ### Design
 
 * Flexibility: Developers can create smart contracts as docker containers with the ability to update and delete after deployment.
-The Dragonchain platform
 * Simplicity: Dragonchain has SDKs in Python and Nodejs to help users interact with their chains.
 
 ### Basic Requirements
 
 * Must have a Dragonchain Console account
 * Must download Dragonchain SDK of your choice: [Python](https://github.com/dragonchain-inc/dragonchain-sdk-python) or [Node.js](https://github.com/dragonchain-inc/dragonchain-sdk-node) SDK
-* Use Docker registry
 
 ### Smart Contract
 
@@ -102,7 +100,7 @@ Response from Dragonchain
             "execution_order": "parallel",
             "existing_secrets": null,
             "id": "2cb7589b-1218-42b7-b876-7a05392d86c9",
-            "image": "taban/python_contract:latest",
+            "image": "image_name",
             "image_digest": null,
             "seconds": null,
             "status": {
@@ -151,7 +149,7 @@ Response from Dragonchain
             "execution_order": "parallel",
             "existing_secrets": [],
             "id": "2cb7589b-1218-42b7-b876-7a05392d86c9",
-            "image": "taban/python_contract:latest",
+            "image": "image_name",
             "image_digest": null,
             "seconds": null,
             "status": {
@@ -212,7 +210,7 @@ print(dragonchain_client.delete_contract('<contract_id>'))
 #### Register a transaction type
 
 ```python
-print(json.dumps(dragonchain_client.register_transaction_type('currency')))
+print(dragonchain_client.register_transaction_type('currency'))
 ```
 
 #### Post a transaction
@@ -272,7 +270,7 @@ Save the transaction_id returned by your example
 #### Update a Transaction
 
 ```python
-print(json.dumps(dragonchain_client.register_transaction_type('currency')))
+print(dragonchain_client.register_transaction_type('currency'))
 ```
 
 #### Query a Transaction
@@ -283,7 +281,7 @@ Grab the transaction id returned by currency
 
 ```python
 # # Query currency
-print(dragonchain_client.query_transactions(query='5b64cd77-6d7e-48ba-8004-5c276ed43da7'))
+print(dragonchain_client.query_transactions(query='your_transaction_id'))
 ```
 
 Response from Dragonchain
@@ -331,7 +329,7 @@ Grab the transaction id returned by example_contract
 
 ```python
 # Query example_contract
-print(dragonchain_client.query_transactions(query='02c3652e-e5ae-425b-9413-986d9b844cb6'))
+print(dragonchain_client.query_transactions(query='your_transaction_id'))
 ```
 
 Response from Dragonchain
