@@ -62,7 +62,7 @@ docker build -t  taban/python_contract .
 docker push taban/python_contract:latest
 ```
 
-After pushing the Smart Contract to a docker registry, we will then use Python SDK to deploy our Smart Contract. Go to this link to download the [Python SDK](https://python-sdk-docs.dragonchain.com/latest/)
+After pushing the Smart Contract to a docker registry, we will use the [Python SDK](https://python-sdk-docs.dragonchain.com/latest/) to deploy our Smart Contract.
 
 ```sh
 pip install dragonchain-sdk
