@@ -211,7 +211,7 @@ print(json.dumps(dragonchain_client.delete_contract('<contract_id>')))
 
 ### Transaction
 
-#### Register a transaction
+#### Register a transaction type
 
 ```python
 print(json.dumps(dragonchain_client.register_transaction_type('currency')))
