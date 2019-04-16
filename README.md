@@ -47,7 +47,7 @@ Smart contracts facilitate credible transactions in a verifiable and permanent m
 
 #### Deploy a Smart Contract
 
-Clone the Smart Contract template and choose the python_contract
+Clone the Smart Contract template and choose python_contract
 
 ```sh
 git clone https://github.com/dragonchain-inc/guide-to-develop-on-dragonchain
