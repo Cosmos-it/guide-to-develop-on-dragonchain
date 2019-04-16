@@ -24,7 +24,7 @@ print(json.dumps(client.update_contract(
 )))
 
 # To post smart contract written in different languages, 
-# the cm and args values.
+# change the cmd and args values.
 
 # -----------------------
 # Python commands:
