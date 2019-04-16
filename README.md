@@ -356,7 +356,7 @@ Response from Dragonchain
                 },
                 "payload": {
                     "exampleData": {
-                        "message": "Hellow, world!",
+"message": "Hello, world!",
                         "type": "test"
                     },
                     "version": "1"
