@@ -375,7 +375,7 @@ Response from Dragonchain
 ```
 
 Note:
-> Our system also allows developers to add scheduled smart contract execution using cron/seconds. Example: ```cron=’* * * * *’/seconds=60``` This is optional. If you are going to use a scheduler, remember that you can only use a cron or seconds but NOT both.
+> Our system also allows developers to add scheduled smart contract execution using a cron expression or seconds between broadcasts. For example, `cron=’* * * * *’` and `seconds=59` are both valid. These fields are optional. If you are going to use a scheduler, you can only use a cron or seconds, not both.
 
 ### Contribute SDK
 
