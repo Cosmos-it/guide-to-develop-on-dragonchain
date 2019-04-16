@@ -28,7 +28,7 @@ This document is for developers and enterprises who are:
 ### Design
 
 * Flexibility: Developers can create smart contracts as docker containers with the ability to update and delete after deployment.
-* Scalability:  Dragonchain platform doesn’t use algorithm such as PoW or PoS. Instead we use public blockchains for pinning without running our own.
+The Dragonchain platform
 * Simplicity: Dragonchain has SDKs in Python and Nodejs to help users interact with their chains.
 
 ### Basic Requirements
