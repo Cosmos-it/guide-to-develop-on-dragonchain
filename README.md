@@ -35,11 +35,9 @@ The Dragonchain platform
 
 * Must have a Dragonchain Console account
 * Must download Dragonchain SDK of your choice: [Python](https://github.com/dragonchain-inc/dragonchain-sdk-python) or [Node.js](https://github.com/dragonchain-inc/dragonchain-sdk-node) SDK
-* Must know how to push docker image to Docker registry
+* Use Docker registry
 
 ### Smart Contract
-
-Smart contracts facilitate credible transactions in a verifiable and permanent manner, without the need for third parties.
 
 #### Dragonchain Smart Contract
 
@@ -55,11 +53,11 @@ cd guide-to-develop-on-dragonchain
 cd python_contract
 ```
 
-If you are not using docker hub, the steps below might look different. We will now build and push a Smart Contract docker image to Dragonchain.
+Docker commands
 
 ```sh
-docker build -t  taban/python_contract .
-docker push taban/python_contract:latest
+docker build -t  image_name .
+docker push image_name
 ```
 
 After pushing the Smart Contract to a docker registry, we will use the [Python SDK](https://python-sdk-docs.dragonchain.com/latest/) to deploy our Smart Contract.
@@ -73,17 +71,17 @@ We will create a file called index.py and incrementally add code.
 ```python
 import json
 import dragonchain_sdk
-client = dragonchain_sdk.Client('<DC_ID>', '<AUTH_KEY>', 'AUTH_KEY_ID')
+client = dragonchain_sdk.Client(dragonchain_id='your_dc_id', auth_key_id='your_auth_key_id', auth_key='your_auth_key')
 
-# Post Smart Contract
-print(json.dumps(dragonchain_client.post_contract(
-    txn_type='example_contract',
-    image='taban/python_contract',
+# Post Python Smart Contract
+print(dragonchain_client.post_contract(
+    txn_type='image_name',
+    image='image_name',
     cmd='python',
     args=['-m', 'index'],
     execution_order='parallel',
     # auth='<docker_auth_token_if_private_repository>'
-)))
+))
 ```
 
 Response from Dragonchain
@@ -124,15 +122,15 @@ Response from Dragonchain
 
 ```python
 
-# Update Smart Contract
-print(json.dumps(dragonchain_client.update_contract(
+# Update Python Smart Contract
+print(dragonchain_client.update_contract(
     contract_id='<contract_id>',
-    image='taban/python_contract:latest',
+    image='image_name',
     cmd='python',
     args=['-m', 'index'],
     execution_order='parallel',
     # auth='<docker_auth_token_if_private_repository>'
-)))
+))
 ```
 
 Response from Dragonchain
@@ -174,7 +172,7 @@ Response from Dragonchain
 
 ```python
 # Delete a Smart Contract
-print(json.dumps(dragonchain_client.delete_contract('<contract_id>')))
+print(dragonchain_client.delete_contract('<contract_id>'))
 ```
 
 ```json
@@ -223,14 +221,14 @@ Posting a transaction to currency transaction
 
 ```python
 # Currency contract
-print(json.dumps(dragonchain_client.post_transaction('currency', {
+print(dragonchain_client.post_transaction('currency', {
     'version': '1',
     'paymentData': {
         'amount': 500,
         'to': 'John Howies',
         'type': 'dining'
     }
-})))
+}))
 ```
 
 Response from Dragonchain
@@ -248,13 +246,13 @@ Response from Dragonchain
 Post a transaction to our python_contract under the txn_type='example_contract'
 
 ```python
-print(json.dumps(dragonchain_client.post_transaction('example_contract', {
+print(dragonchain_client.post_transaction('example_contract', {
     'version': '1',
     'exampleData': {
         'type': 'test',
 'message': 'Hello, world!'
     }
-})))
+}))
 ```
 
 Response from Dragonchain
@@ -285,7 +283,7 @@ Grab the transaction id returned by currency
 
 ```python
 # # Query currency
-print(json.dumps(dragonchain_client.query_transactions(query='txn_id:"5b64cd77-6d7e-48ba-8004-5c276ed43da7"')))
+print(dragonchain_client.query_transactions(query='5b64cd77-6d7e-48ba-8004-5c276ed43da7'))
 ```
 
 Response from Dragonchain
@@ -333,7 +331,7 @@ Grab the transaction id returned by example_contract
 
 ```python
 # Query example_contract
-print(json.dumps(dragonchain_client.query_transactions('txn_id:"02c3652e-e5ae-425b-9413-986d9b844cb6"')))
+print(dragonchain_client.query_transactions(query='02c3652e-e5ae-425b-9413-986d9b844cb6'))
 ```
 
 Response from Dragonchain
@@ -374,7 +372,6 @@ Response from Dragonchain
 }
 ```
 
-Note:
 > Our system also allows developers to add scheduled smart contract execution using a cron expression or seconds between broadcasts. For example, `cron=’* * * * *’` and `seconds=59` are both valid. These fields are optional. If you are going to use a scheduler, you can only use a cron or seconds, not both.
 
 ### Contribute SDK
