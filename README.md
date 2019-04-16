@@ -33,7 +33,7 @@ This document is for developers and enterprises who are:
 
 ### Basic Requirements
 
-* Must have a Dragonchain Console account (Keys)
+* Must have a Dragonchain Console account
 * Must download Dragonchain SDK of your choice: [Python](https://github.com/dragonchain-inc/dragonchain-sdk-python) or [Node.js](https://github.com/dragonchain-inc/dragonchain-sdk-node) SDK
 * Must know how to push docker image to Docker registry
 
