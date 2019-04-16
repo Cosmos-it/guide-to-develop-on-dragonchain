@@ -68,7 +68,7 @@ After pushing the Smart Contract to a docker registry, we will use the [Python S
 pip install dragonchain-sdk
 ```
 
-Lets create a file called index.py. We will incrementatlly add code to this file you created until the end.
+We will create a file called index.py and incrementally add code.
 
 ```python
 import json
