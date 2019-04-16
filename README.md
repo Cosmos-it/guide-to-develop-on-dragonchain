@@ -252,7 +252,7 @@ print(json.dumps(dragonchain_client.post_transaction('example_contract', {
     'version': '1',
     'exampleData': {
         'type': 'test',
-        'message': 'Hellow, world!'
+'message': 'Hello, world!'
     }
 })))
 ```
