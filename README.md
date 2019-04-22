@@ -17,6 +17,7 @@
   * [Post a Transaction](#post-a-transaction)
   * [Update a Transaction](#register-a-transaction)
   * [Query a Transaction](#query-a-transaction)
+* [Node example](#node-exmaple)
 
 ### Audience
 
@@ -50,7 +51,6 @@ git clone https://github.com/dragonchain-inc/guide-to-develop-on-dragonchain
 cd guide-to-develop-on-dragonchain
 cd python_contract
 ```
-### [Node example](https://github.com/dragonchain-inc/custom-contract-node-sdk)
 
 Docker commands
 
@@ -370,6 +370,8 @@ Response from Dragonchain
     "status": 200
 }
 ```
+### Node example
+[Go here](https://github.com/dragonchain-inc/custom-contract-node-sdk)
 
 > Our system also allows developers to add scheduled smart contract execution using a cron expression or seconds between broadcasts. For example, `cron='* * * * *'` and `seconds=59` are both valid. These fields are optional. If you are going to use a scheduler, you can only use a cron or seconds, not both.
 
