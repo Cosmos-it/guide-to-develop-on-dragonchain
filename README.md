@@ -17,7 +17,7 @@
   * [Post a Transaction](#post-a-transaction)
   * [Update a Transaction](#register-a-transaction)
   * [Query a Transaction](#query-a-transaction)
-* [Node example](#node-exmaple)
+* [Node example](#node-example)
 
 ### Audience
 
