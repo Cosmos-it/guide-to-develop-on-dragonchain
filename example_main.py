@@ -1,22 +1,23 @@
 import json
 import dragonchain_sdk
 
-client = dragonchain_sdk.Client(dragonchain_id='05b12c6d-41dc-4336-a932-d8b57ca5b04f', auth_key_id='FFMSSPXDBEVN', auth_key='ogdmoDOiNoND1j5fE6X2CEiVonfG5l48dWKlLOjMAhH')
+client = dragonchain_sdk.Client(dragonchain_id='05b12c6d-41dc-4336-a932-d8b57ca5b04f', auth_key_id='FFMSSPXDBEVN', auth_key='ogdmoDOiNoND1j5fE6X2CEiVonfG5l48dWKlLOjMAhH', endpoint="05b12c6d-41dc-4336-a932-d8b57ca5b04f")
 
 # Posting NodeJs contract
 print(json.dumps(client.post_contract(
-    txn_type='calculator',
-    image='taban/calculator',
+    txn_type='contract_name',
+    image='your_contract_image_name',
     cmd='node',
     args=['index.js'],
     execution_order='parallel',
     # auth='<docker_auth_token_if_private_repository>'
 )))
 
+
 # Updating NodeJs contract
 # print(json.dumps(client.update_contract(
 #     contract_id='<contract_id>',
-#     image='image_name',
+#     image='your_contract_image_name',
 #     cmd='node', 
 #     args=['index.js'],
 #     execution_order='parallel',
