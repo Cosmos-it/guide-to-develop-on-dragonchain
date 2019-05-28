@@ -2,7 +2,7 @@
 
 ## Guide to building on Dragonchain
 
-### Overview
+### Contents
 
 * [Audience](#audience)
 * [Design](#design)
@@ -23,18 +23,19 @@
 
 This document is for developers and enterprises who are:
 
-* Interested in Dragonchain Platform
-* Looking to write Smart Contracts
+* Interested in Hybrid Blockchains
+* Looking to write Upgradeable Smart Contracts
 
 ### Design
 
-* Flexibility: Developers can create smart contracts as docker containers with the ability to update and delete after deployment.
-* Simplicity: Dragonchain has SDKs in Python and Nodejs to help users interact with their chains.
+* Flexibility: Developers can create smart contracts as docker containers with the ability to update and delete them even after deployment.
+* Simplicity: Dragonchain has official SDKs in Python, NodeJS, Golang and a community SDK in C# helping users interact with their chains.
 
-### Basic Requirements
+### Prerequisites
 
-* Must have a Dragonchain [Console account](https://account.dragonchain.com)
-* Must download Dragonchain SDK of your choice: [Python](https://github.com/dragonchain-inc/dragonchain-sdk-python) or [Node.js](https://github.com/dragonchain-inc/dragonchain-sdk-node) SDK
+1) Register for a Dragonchain [Console account](https://account.dragonchain.com)
+2) Download a Dragonchain SDK of your choice: [Python](https://github.com/dragonchain-inc/dragonchain-sdk-python) or [Node.js](https://github.com/dragonchain-inc/dragonchain-sdk-node) _(more coming soon...)_
+
 
 ### Smart Contract
 
@@ -44,42 +45,92 @@ This document is for developers and enterprises who are:
 
 #### Deploy a Smart Contract
 
-Clone the Smart Contract template and choose python_contract
+1) Open up your Terminal/Bash Prompt and clone the smart contract template. Then change into the python_contract directory
 
 ```sh
-git clone https://github.com/dragonchain-inc/guide-to-develop-on-dragonchain
-cd guide-to-develop-on-dragonchain
-cd python_contract
+$ git clone https://github.com/dragonchain-inc/guide-to-develop-on-dragonchain
+$ cd guide-to-develop-on-dragonchain
+$ cd smart-contract-templates
+$ cd python_contract
 ```
 
-Docker commands
+2) Change to your home directory and create a python virtual environment as per best practice *(change dragonvenv to any suitable name)*
 
 ```sh
-docker build -t  image_name .
-docker push image_name
+$ virtualenv -p python3 dragonvenv
 ```
-
-After pushing the Smart Contract to a docker registry, we will use the [Python SDK](https://python-sdk-docs.dragonchain.com/latest/) to deploy our Smart Contract.
+3) Activate your virtual environment. (type in 'deactivate' when you want to leave the virtual environment later)*
 
 ```sh
-pip install dragonchain-sdk
+ $ source dragonvenv/bin/activate
 ```
 
-We will create a file called index.py and incrementally add code.
+4) Install the [Python SDK](https://python-sdk-docs.dragonchain.com/latest/) to interface with your smart contract
+
+```sh
+ $ sudo pip3 install dragonchain-sdk
+```
+5) Open up your favourite web browser and register for a DockerHub Account: https://hub.docker.com/signup <br/> *(or login into your existing one)*
+
+6) Click 'Create a Repository'
+<br/><br/>
+7) Enter a 'Name' for your repository, e.g. "interchain"
+<br/><br/>
+8) Now go back to your Terminal, and build your docker image from the Dockerfile in the /python_contract sub-directory
+
+```sh
+$ docker build -t  any_image_name .
+```
+
+9) Then push your smart contract image to your newly created docker registry <br/> *(substitute docker_id, repo_name, tag_name with your own values!)*
+
+```sh
+$ docker push docker_id/repo_name:tagname
+```
+
+*   *For example, in our case we might do: docker push 19011/interchain:stellar*
+
+10) Go back to your web browser and log into your [Dragonchain Console account](https://account.dragonchain.com/login)
+<br/><br/>
+
+11) Go to the 'Create Chain' section and choose a name for your new hybrid chain, then click create. <br/> *(Leave Level as 'Level 1' )*
+<br/><br/>
+![alt text](https://joycoin.files.wordpress.com/2019/05/level1-chain.png?w=840)
+<br/><br/>
+12) Note down the Chain ID of your new chain and keep it secure! <br/> *(In our chain 'misty-silence', the Chain ID happends to be 'fcf62a0f-5904-428a-bc7d-99e974fa89e0')*
+<br/><br/>
+![alt text](https://joycoin.files.wordpress.com/2019/05/screenshot-from-2019-05-22-21-10-48.png?w=840)
+<br/><br/>
+13) Click 'View Chain' and navigate to the dashboard of your newly created hybrid chain. Scroll down to the 'MISC' section and click on 'Generate New API Key' on the bottom right.
+<br/><br/>
+![alt text](https://joycoin.files.wordpress.com/2019/05/screenshot-from-2019-05-22-21-43-36.png)
+<br/><br/>
+14) Note down the Auth Key ID and Auth Key and keep them secure! <br/> *(The 'Auth Key ID' in our case is 'NNIPQSWIKNYV' and the 'Auth Key' is 'MabBUglfjl87LVLZFJQCahxrKfEQojhc')*
+<br/><br/>
+![alt text](https://joycoin.files.wordpress.com/2019/05/screenshot-from-2019-05-22-21-15-01.png)
+
+
+
+15) Now go back to the Terminal, and open up the file index.py with your favourite editor. Delete any existing lines of code.  <br/>  *(We use Atom here but you can use Sublime, VisualStudio, Vim or even EMACS if you really fancy.)*
+
+```sh
+atom index.py
+```
+
+16) Copy (Ctrl + C), paste (Ctrl + V) and save (Ctrl + S) the following code into your index.py file. <br/>  *(In the code we use our sample credentials but please replace them with your own! <br/>  Here we are creating a cryptocurrency of transaction type 'nvidiacoin'. Ensure you enter a semicolon followed by any version number in your image name e.g. stellar:0.0.1)*
 
 ```python
 import json
 import dragonchain_sdk
-client = dragonchain_sdk.Client(dragonchain_id='your_dc_id', auth_key_id='your_auth_key_id', auth_key='your_auth_key')
+dragonchain_client = dragonchain_sdk.Client(dragonchain_id='fcf62a0f-5904-428a-bc7d-99e974fa89e0', auth_key_id='NNIPQSWIKNYV', auth_key='MabBUglfjl87LVLZFJQCahxrKfEQojhc')
 
-# Post Python Smart Contract
+# Create a Python Cryptocurrency Contract
 print(dragonchain_client.post_contract(
-    txn_type='image_name',
-    image='image_name',
+    txn_type='nvidiacoin',
+    image='interchain:stellar:0.0.1',
     cmd='python',
     args=['-m', 'index'],
     execution_order='parallel',
-    # auth='<docker_auth_token_if_private_repository>'
 ))
 ```
 
@@ -216,7 +267,7 @@ print(dragonchain_client.register_transaction_type('currency'))
 
 #### Post a transaction
 
-Posting a transaction to currency transaction
+20) Posting a transaction to currency transaction
 
 ```python
 # Currency contract
@@ -242,7 +293,7 @@ Response from Dragonchain
 }
 ```
 
-Post a transaction to our python_contract under the txn_type='example_contract'
+21)Post a transaction to our python_contract under the txn_type='example_contract'
 
 ```python
 print(dragonchain_client.post_transaction('example_contract', {
@@ -256,7 +307,7 @@ print(dragonchain_client.post_transaction('example_contract', {
 
 Response from Dragonchain
 
-Save the transaction_id returned by your example
+22) Save the transaction_id returned by your example
 
 ```json
 {
@@ -276,7 +327,7 @@ print(dragonchain_client.register_transaction_type('currency'))
 
 #### Query a Transaction
 
-Query currency transaction
+23) Query the currency transaction
 
 Grab the transaction id returned by currency
 
@@ -324,7 +375,7 @@ Response from Dragonchain
 }
 ```
 
-Query example_contract transaction
+24) Query example_contract transaction
 
 Grab the transaction id returned by example_contract
 
