@@ -1,16 +1,17 @@
 import json
 import dragonchain_sdk
 
-client = dragonchain_sdk.Client(dragonchain_id='your_dc_id', auth_key_id='your_auth_id', auth_key='your_auth_key', endpoint='your_dc_id.api.dragonchain.com')
+client = dragonchain_sdk.Client(dragonchain_id='your_dc_id', auth_key_id='your_auth_id', auth_key='your_auth_key', endpoint='https://your_dc_id.api.dragonchain.com')
+
 
 # Posting NodeJs contract
-print(json.dumps(client.post_contract(
-    txn_type='contract_name',
+print(json.dumps(client.create_smart_contract(
+    transaction_type='contract_name',
     image='image_name',
     cmd='node',
     args=['index.js'],
     execution_order='parallel',
-    # auth='<docker_auth_token_if_private_repository>'
+    # registry_credentials='<docker_auth_token_if_private_repository>'
 )))
 
 

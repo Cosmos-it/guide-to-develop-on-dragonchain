@@ -122,10 +122,10 @@ atom index.py
 ```python
 import json
 import dragonchain_sdk
-dragonchain_client = dragonchain_sdk.Client(dragonchain_id='fcf62a0f-5904-428a-bc7d-99e974fa89e0', auth_key_id='NNIPQSWIKNYV', auth_key='MabBUglfjl87LVLZFJQCahxrKfEQojhc')
+dragonchain_client = dragonchain_sdk.Client(dragonchain_id='your_dc_id', auth_key_id='your_auth_key_id', auth_key='your_authkey')
 
 # Create a Python Cryptocurrency Contract
-print(dragonchain_client.post_contract(
+print(dragonchain_client.create_smart_contract(
     txn_type='nvidiacoin',
     image='interchain:stellar:0.0.1',
     cmd='python',
@@ -262,7 +262,7 @@ print(dragonchain_client.delete_contract('<contract_id>'))
 #### Register a transaction type
 
 ```python
-print(dragonchain_client.register_transaction_type('currency'))
+print(dragonchain_client.register_transaction_type(transation_type='currency'))
 ```
 
 #### Post a transaction
@@ -271,7 +271,7 @@ print(dragonchain_client.register_transaction_type('currency'))
 
 ```python
 # Currency contract
-print(dragonchain_client.post_transaction('currency', {
+print(dragonchain_client.create_transaction(transation_type='currency', payload={
     'version': '1',
     'paymentData': {
         'amount': 500,
@@ -296,7 +296,7 @@ Response from Dragonchain
 21)Post a transaction to our python_contract under the txn_type='example_contract'
 
 ```python
-print(dragonchain_client.post_transaction('example_contract', {
+print(dragonchain_client.create_transaction(transaction_type='example_contract', {
     'version': '1',
     'exampleData': {
         'type': 'test',
@@ -333,7 +333,7 @@ Grab the transaction id returned by currency
 
 ```python
 # # Query currency
-print(dragonchain_client.query_transactions(query='your_transaction_id'))
+print(dragonchain_client.query_transactions(lucene_query='your_transaction_id'))
 ```
 
 Response from Dragonchain
@@ -381,7 +381,7 @@ Grab the transaction id returned by example_contract
 
 ```python
 # Query example_contract
-print(dragonchain_client.query_transactions(query='your_transaction_id'))
+print(dragonchain_client.query_transactions(lucene_query='your_transaction_id'))
 ```
 
 Response from Dragonchain
