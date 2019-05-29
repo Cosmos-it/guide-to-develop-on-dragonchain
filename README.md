@@ -97,7 +97,7 @@ $ docker push docker_id/repo_name:tagname
 
 ![alt text](https://joycoin.files.wordpress.com/2019/05/level1-chain.png?w=840)
 
-12) Note down the Chain ID of your new chain and keep it secure! <br/> *(In our chain 'misty-silence', the Chain ID happends to be 'fcf62a0f-5904-428a-bc7d-99e974fa89e0')*
+12) Note down the Chain ID of your new chain and keep it secure! <br/> *(In our chain 'misty-silence', the Chain ID happends to be 'fcf62a0f-5904-428a-bc7d-99e974fa89e0')*. When using the SDK, you should generate keys: AuthKeyId and AuthKey while on the your created section. Scroll to the bottom of Dragonchain console.
 
 ![alt text](https://joycoin.files.wordpress.com/2019/05/screenshot-from-2019-05-22-21-10-48.png?w=840)
 
