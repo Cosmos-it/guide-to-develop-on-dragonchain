@@ -48,6 +48,7 @@ This document is for developers and enterprises who are:
 1) Open up your Terminal/Bash Prompt and clone the smart contract template. Then change into the python_contract directory
 
 ```sh
+
 $ git clone https://github.com/dragonchain-inc/guide-to-develop-on-dragonchain
 $ cd guide-to-develop-on-dragonchain
 $ cd smart-contract-templates
@@ -73,9 +74,9 @@ $ virtualenv -p python3 dragonvenv
 5) Open up your favourite web browser and register for a DockerHub Account: https://hub.docker.com/signup <br/> *(or login into your existing one)*
 
 6) Click 'Create a Repository'
-<br/><br/>
+
 7) Enter a 'Name' for your repository, e.g. "interchain"
-<br/><br/>
+
 8) Now go back to your Terminal, and build your docker image from the Dockerfile in the /python_contract sub-directory
 
 ```sh
@@ -91,22 +92,21 @@ $ docker push docker_id/repo_name:tagname
 *   *For example, in our case we might do: docker push 19011/interchain:stellar*
 
 10) Go back to your web browser and log into your [Dragonchain Console account](https://account.dragonchain.com/login)
-<br/><br/>
 
 11) Go to the 'Create Chain' section and choose a name for your new hybrid chain, then click create. <br/> *(Leave Level as 'Level 1' )*
-<br/><br/>
+
 ![alt text](https://joycoin.files.wordpress.com/2019/05/level1-chain.png?w=840)
-<br/><br/>
+
 12) Note down the Chain ID of your new chain and keep it secure! <br/> *(In our chain 'misty-silence', the Chain ID happends to be 'fcf62a0f-5904-428a-bc7d-99e974fa89e0')*
-<br/><br/>
+
 ![alt text](https://joycoin.files.wordpress.com/2019/05/screenshot-from-2019-05-22-21-10-48.png?w=840)
-<br/><br/>
+
 13) Click 'View Chain' and navigate to the dashboard of your newly created hybrid chain. Scroll down to the 'MISC' section and click on 'Generate New API Key' on the bottom right.
-<br/><br/>
+
 ![alt text](https://joycoin.files.wordpress.com/2019/05/screenshot-from-2019-05-22-21-43-36.png)
-<br/><br/>
+
 14) Note down the Auth Key ID and Auth Key and keep them secure! <br/> *(The 'Auth Key ID' in our case is 'NNIPQSWIKNYV' and the 'Auth Key' is 'MabBUglfjl87LVLZFJQCahxrKfEQojhc')*
-<br/><br/>
+
 ![alt text](https://joycoin.files.wordpress.com/2019/05/screenshot-from-2019-05-22-21-15-01.png)
 
 
@@ -420,6 +420,7 @@ Response from Dragonchain
     },
     "status": 200
 }
+
 ```
 ### Node example
 [Go here](https://github.com/dragonchain-inc/custom-contract-node-sdk)

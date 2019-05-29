@@ -1,0 +1,22 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "## Guide to building on Dragonchain",
+  "main": "example_main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dragonchain-inc/guide-to-develop-on-dragonchain.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dragonchain-inc/guide-to-develop-on-dragonchain/issues"
+  },
+  "homepage": "https://github.com/dragonchain-inc/guide-to-develop-on-dragonchain#readme",
+  "dependencies": {
+    "dragonchain-sdk": "^3.0.2"
+  }
+}

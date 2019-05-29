@@ -54,4 +54,4 @@ print(json.dumps(client.post_contract(
 
 # --------------------------------------------------------
 # Delete a Smart Contract
-# print()client.delete_contract('<contract_id>'))
+# print(client.delete_contract('<contract_id>'))
