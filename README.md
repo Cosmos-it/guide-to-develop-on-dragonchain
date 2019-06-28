@@ -34,7 +34,7 @@ This document is for developers and enterprises who are:
 ### Prerequisites
 
 1) Register for a Dragonchain [Console account](https://account.dragonchain.com)
-2) Download a Dragonchain SDK of your choice: [Python](https://github.com/dragonchain-inc/dragonchain-sdk-python) or [Node.js](https://github.com/dragonchain-inc/dragonchain-sdk-node) _(more coming soon...)_
+2) Download a Dragonchain SDK of your choice: [Python](https://github.com/dragonchain-inc/dragonchain-sdk-python), [Node.js](https://github.com/dragonchain-inc/dragonchain-sdk-node), [Golang](https://github.com/dragonchain-inc/dragonchain-sdk-go) _(more coming soon...)_
 
 
 ### Smart Contract
@@ -45,7 +45,7 @@ This document is for developers and enterprises who are:
 
 #### Deploy a Smart Contract
 
-1) Open up your Terminal/Bash Prompt and clone the smart contract template. Then change into the python_contract directory
+1) Open up your Terminal/Bash Prompt and clone the smart contract template. Then cd in to the python_contract directory
 
 ```sh
 
@@ -91,13 +91,13 @@ $ docker push docker_id/repo_name:tagname
 
 *   *For example, in our case we might do: docker push 19011/interchain:stellar*
 
-10) Go back to your web browser and log into your [Dragonchain Console account](https://account.dragonchain.com/login)
+10) Go back to your web browser and log in to your [Dragonchain Console account](https://account.dragonchain.com/login)
 
 11) Go to the 'Create Chain' section and choose a name for your new hybrid chain, then click create. <br/> *(Leave Level as 'Level 1' )*
 
 ![alt text](https://joycoin.files.wordpress.com/2019/05/level1-chain.png?w=840)
 
-12) Note down the Chain ID of your new chain and keep it secure! <br/> *(In our chain 'misty-silence', the Chain ID happends to be 'fcf62a0f-5904-428a-bc7d-99e974fa89e0')*. When using the SDK, you should generate keys: AuthKeyId and AuthKey while on the your created section. Scroll to the bottom of Dragonchain console.
+12) Note down the Chain ID of your new chain and keep it secure! <br/> *(In our chain 'misty-silence', the Chain ID happens to be 'fcf62a0f-5904-428a-bc7d-99e974fa89e0')*. When using the SDK, you should generate keys: AuthKeyId and AuthKey while on your created section. Scroll to the bottom of the Dragonchain console.
 
 ![alt text](https://joycoin.files.wordpress.com/2019/05/screenshot-from-2019-05-22-21-10-48.png?w=840)
 
@@ -105,19 +105,19 @@ $ docker push docker_id/repo_name:tagname
 
 ![alt text](https://joycoin.files.wordpress.com/2019/05/screenshot-from-2019-05-22-21-43-36.png)
 
-14) Note down the Auth Key ID and Auth Key and keep them secure! <br/> *(The 'Auth Key ID' in our case is 'NNIPQSWIKNYV' and the 'Auth Key' is 'MabBUglfjl87LVLZFJQCahxrKfEQojhc')*
+14) Save both the Auth Key ID and Auth Key, and keep them secure! <br/> *(The 'Auth Key ID' in our case is 'NNIPQSWIKNYV' and the 'Auth Key' is 'MabBUglfjl87LVLZFJQCahxrKfEQojhc')*
 
 ![alt text](https://joycoin.files.wordpress.com/2019/05/screenshot-from-2019-05-22-21-15-01.png)
 
 
 
-15) Now go back to the Terminal, and open up the file index.py with your favourite editor. Delete any existing lines of code.  <br/>  *(We use Atom here but you can use Sublime, VisualStudio, Vim or even EMACS if you really fancy.)*
+15) Now go back to the Terminal and open up the file index.py with your favourite editor. Delete any existing lines of code.  <br/>  *(We use Atom here but you can use Sublime, VisualStudio, Vim or even EMACS if you truly fancy.)*
 
 ```sh
 atom index.py
 ```
 
-16) Copy (Ctrl + C), paste (Ctrl + V) and save (Ctrl + S) the following code into your index.py file. <br/>  *(In the code we use our sample credentials but please replace them with your own! <br/>  Here we are creating a cryptocurrency of transaction type 'nvidiacoin'. Ensure you enter a semicolon followed by any version number in your image name e.g. stellar:0.0.1)*
+16) Copy (Ctrl + C), paste (Ctrl + V) and save (Ctrl + S) the following code into your index.py file. <br/>  *(In the code we use our sample credentials, but please replace them with your own! <br/>  Here we are creating a crypto token with transaction type 'nvidiacoin'. Ensure you enter a semicolon followed by any version number in your image name e.g. stellar:0.0.1)*
 
 ```python
 import json
@@ -134,7 +134,7 @@ print(dragonchain_client.create_smart_contract(
 ))
 ```
 
-Response from Dragonchain
+Response from Dragonchain:
 
 ```json
 {
@@ -168,6 +168,7 @@ Response from Dragonchain
 }
 ```
 
+17)
 #### Update a Smart Contract
 
 ```python
@@ -183,7 +184,7 @@ print(dragonchain_client.update_contract(
 ))
 ```
 
-Response from Dragonchain
+Response from Dragonchain:
 
 ```json
 {
@@ -218,12 +219,14 @@ Response from Dragonchain
 
 ```
 
+18)
 #### Delete a Smart Contract
 
 ```python
 # Delete a Smart Contract
 print(dragonchain_client.delete_contract('<contract_id>'))
 ```
+Response from Dragonchain:
 
 ```json
 {
@@ -259,6 +262,7 @@ print(dragonchain_client.delete_contract('<contract_id>'))
 
 ### Transaction
 
+19)
 #### Register a transaction type
 
 ```python
@@ -267,7 +271,7 @@ print(dragonchain_client.register_transaction_type(transation_type='currency'))
 
 #### Post a transaction
 
-20) Posting a transaction to currency transaction
+20) Posting a currency/token transaction
 
 ```python
 # Currency contract
@@ -281,7 +285,7 @@ print(dragonchain_client.create_transaction(transation_type='currency', payload=
 }))
 ```
 
-Response from Dragonchain
+Response from Dragonchain:
 
 ```json
 {
@@ -293,7 +297,7 @@ Response from Dragonchain
 }
 ```
 
-21)Post a transaction to our python_contract under the txn_type='example_contract'
+21) Post a transaction to our python_contract under the txn_type='example_contract'
 
 ```python
 print(dragonchain_client.create_transaction(transaction_type='example_contract', {
@@ -305,7 +309,7 @@ print(dragonchain_client.create_transaction(transaction_type='example_contract',
 }))
 ```
 
-Response from Dragonchain
+Response from Dragonchain:
 
 22) Save the transaction_id returned by your example
 
@@ -327,16 +331,16 @@ print(dragonchain_client.register_transaction_type('currency'))
 
 #### Query a Transaction
 
-23) Query the currency transaction
+23) Query the currency/token transaction
 
-Grab the transaction id returned by currency
+Grab the transaction id returned
 
 ```python
-# # Query currency
+# # Query currency/token transaction
 print(dragonchain_client.query_transactions(lucene_query='your_transaction_id'))
 ```
 
-Response from Dragonchain
+Response from Dragonchain:
 
 ```json
 {
@@ -384,7 +388,7 @@ Grab the transaction id returned by example_contract
 print(dragonchain_client.query_transactions(lucene_query='your_transaction_id'))
 ```
 
-Response from Dragonchain
+Response from Dragonchain:
 
 ```json
 {
@@ -425,8 +429,8 @@ Response from Dragonchain
 ### Node example
 [Go here](https://github.com/dragonchain-inc/custom-contract-node-sdk)
 
-> Our system also allows developers to add scheduled smart contract execution using a cron expression or seconds between broadcasts. For example, `cron='* * * * *'` and `seconds=59` are both valid. These fields are optional. If you are going to use a scheduler, you can only use a cron or seconds, not both.
+> Our system also allows developers to add scheduled smart contract execution using a cron expression or seconds between broadcasts. For example, `cron='* * * * *'` and `seconds=59` are both valid. These fields are optional. If you are going to use a scheduler, you can only use a cron expression or seconds, not both.
 
 ### Contribute SDK
 
-Currently, Dragonchain supports two SDKs ([Python](https://github.com/dragonchain-inc/dragonchain-sdk-python) and [Node.js](https://github.com/dragonchain-inc/dragonchain-sdk-node)), but any language could be used to interface with a chain. If you have any questions, concerns, or would like to contribute to a DragonchainSDK or create your own, please join our community developer forum on Telegram (Community Dragonchain Dev Official).
+Currently, Dragonchain supports three SDKs ([Python](https://github.com/dragonchain-inc/dragonchain-sdk-python), [Node.js](https://github.com/dragonchain-inc/dragonchain-sdk-node), and [Golang](https://github.com/dragonchain-inc/dragonchain-sdk-go)), but any language could be used to interface with a chain. If you have any questions, concerns, would like to contribute to a DragonchainSDK or create your own, please join our community developer forum on Telegram (Community Dragonchain Dev Official) and/or link your GitHub account to (https://dragonchainforum.dev/).
